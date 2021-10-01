@@ -13,6 +13,7 @@ setup(name='stavroslib',
       install_requires=[
           'requests',
           'loguru',
+          'plyer'
           #   'scikit-learn',
           #   'numpy',
           #   'matplotlib'
