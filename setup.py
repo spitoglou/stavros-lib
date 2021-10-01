@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='stavroslib',
-      version='0.1',
+      version='0.2',
       description='My common libraries',
       url='https://github.com/spitoglou/stavros-lib',
       author='Stavros Pitoglou',
