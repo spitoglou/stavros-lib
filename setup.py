@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='stavroslib',
-      version='0.2',
+      version='0.21',
       description='My common libraries',
       url='https://github.com/spitoglou/stavros-lib',
       author='Stavros Pitoglou',
@@ -13,7 +13,9 @@ setup(name='stavroslib',
       install_requires=[
           'requests',
           'loguru',
-          'plyer'
+          'plyer',
+          'reportlab',
+          'PyYAML'
           #   'scikit-learn',
           #   'numpy',
           #   'matplotlib'
