@@ -1,14 +1,14 @@
-'''
+"""
 Miscellaneous Operations
-'''
+"""
+
+from typing import Any
 
 import requests
 from requests.models import Response
 
-# https://restcountries.eu/
 
-
-def get_country_data(country: str) -> list:
+def get_country_data(country: str) -> list[dict[str, Any]]:
     """Country Data
 
     Arguments:
@@ -17,17 +17,18 @@ def get_country_data(country: str) -> list:
     Returns:
         list -- Country Data
     """
-    data: Response = requests.get(
-        'https://restcountries.com/v2/name/' + country)
+    url = "https://restcountries.com/v2/name/" + country
+    data: Response = requests.get(url)
     return data.json()
 
 
 def sys_not(
-        title: str = 'Title',
-        message: str = 'Message',
-        timeout: int = 7,
-        toast: bool = True,
-        app_icon: str = ''):
+    title: str = "Title",
+    message: str = "Message",
+    timeout: int = 7,
+    toast: bool = True,
+    app_icon: str = "",
+):
     """Generate System Notifications (multi-platform)
 
     Keyword Arguments:
@@ -38,9 +39,9 @@ def sys_not(
         app_icon {str} -- Icon file(can be ignored completely) (default: {''})
     """
 
-    from plyer import notification
+    from plyer import notification  # type: ignore[import-untyped]
 
-    notification.notify(
+    notification.notify(  # type: ignore[union-attr]
         title=title,
         message=message,
         timeout=timeout,

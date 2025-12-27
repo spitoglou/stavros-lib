@@ -1,9 +1,11 @@
-'''
+"""
 Dictionary Operations
-'''
+"""
+
+from typing import Any
 
 
-def merge_dicts(dict1: dict, dict2: dict) -> dict:
+def merge_dicts(dict1: dict[str, Any], dict2: dict[str, Any]) -> dict[str, Any]:
     """Merge 2 dictionaries
 
     Arguments:

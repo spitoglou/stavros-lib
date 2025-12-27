@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stavroslib"
+version = "0.21"
+description = "My common libraries"
+authors = [{name = "Stavros Pitoglou", email = "s.pitoglou@csl.gr"}]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "requests",
+    "loguru",
+    "plyer",
+    "reportlab",
+    "PyYAML",
+]
+
+[project.optional-dependencies]
+dev = [
+    "basedpyright>=1.36.2",
+    "mypy>=1.4.1",
+    "pytest>=9.0.2",
+    "types-pyyaml>=6.0.12.20250915",
+    "types-reportlab>=4.4.7.20251223",
+    "types-requests>=2.32.4.20250913",
+]
+
+[tool.setuptools.packages.find]
+include = ["stavroslib*"]
+
+[tool.mypy]
+ignore_missing_imports = false
+
+[[tool.mypy.overrides]]
+module = ["plyer", "plyer.*"]
+ignore_missing_imports = true
+follow_untyped_imports = true
+
+[tool.basedpyright]
+typeCheckingMode = "standard"
+reportMissingTypeStubs = "warning"
+reportUnknownMemberType = "none"

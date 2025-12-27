@@ -1,7 +1,0 @@
-autopep8==1.5.7
-loguru==0.5.3
-flake8==3.9.2
-plyer==2.0.0
-PyYAML==5.4.1
-reportlab==3.6.1
-requests==2.26.0
