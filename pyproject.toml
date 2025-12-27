@@ -10,7 +10,15 @@ authors = [{ name = "Stavros Pitoglou", email = "s.pitoglou@csl.gr" }]
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = ["requests", "loguru", "plyer", "reportlab", "PyYAML", "python-dateutil"]
+dependencies = [
+    "requests",
+    "loguru",
+    "plyer",
+    "reportlab",
+    "PyYAML",
+    "python-dateutil",
+    "lxml",
+]
 
 [project.optional-dependencies]
 dev = [

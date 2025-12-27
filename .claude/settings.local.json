@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(git -C \"d:\\\\code\\\\python\\\\stavros-lib\" log --oneline --all)",
+      "Bash(cat:*)",
+      "Skill(openspec:proposal)",
+      "Skill(openspec:proposal:*)",
+      "Bash(openspec list:*)",
+      "Bash(mkdir:*)",
+      "Bash(openspec validate:*)",
+      "Skill(openspec:apply)",
+      "Skill(openspec:apply:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv run:*)",
+      "Skill(openspec:archive)",
+      "Skill(openspec:archive:*)",
+      "Bash(openspec archive add-datetime-helpers:*)"
+    ]
+  }
+}

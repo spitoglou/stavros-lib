@@ -1,9 +1,5 @@
-# datetime-utilities Specification
+## ADDED Requirements
 
-## Purpose
-Provide utilities for parsing, formatting, and calculating relative times for Python `datetime` objects.
-
-## Requirements
 ### Requirement: Date/Time Parsing
 The library SHALL provide a `parse_datetime()` function that accepts a date/time string and returns a Python `datetime` object. The function SHALL support ISO 8601 format and common date formats (e.g., "15/01/2024", "Jan 15, 2024", "2024-01-15").
 
@@ -64,4 +60,3 @@ The library SHALL provide a `relative_time()` function that accepts a datetime a
 #### Scenario: Just now
 - **WHEN** `relative_time(dt)` is called with a datetime within the last minute
 - **THEN** "just now" is returned
-
