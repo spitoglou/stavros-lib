@@ -42,6 +42,67 @@ Notes:
 - Returns `None` for empty files.
 - Raises `tomllib.TOMLDecodeError` for invalid TOML.
 
+### Read YAML config
+
+```python
+from stavroslib.parse import read_yaml
+
+config = read_yaml("config.yaml")
+if config:
+   print(config.get("name"))
+```
+
+### Merge dictionaries
+
+```python
+from stavroslib.dict import merge_dicts
+
+d1 = {"name": "Stavros"}
+d2 = {"last": "Pitoglou"}
+merged = merge_dicts(d1, d2)
+# {"name": "Stavros", "last": "Pitoglou"}
+```
+
+### Country data (RestCountries)
+
+```python
+from stavroslib.misc import get_country_data
+
+data = get_country_data("Greece")
+print(data[0]["name"])  # "Greece"
+```
+
+Note: Calls the public RestCountries API; requires internet and may be rate-limited. Prefer stubs/mocks in tests.
+
+### System notification (plyer)
+
+```python
+from stavroslib.misc import sys_not
+
+sys_not(title="Hello", message="This is a system notification", timeout=5)
+```
+
+Note: May no-op in headless environments or where OS notifications are disabled.
+
+### PDF fonts and styles (ReportLab)
+
+```python
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.pagesizes import A4
+from stavroslib.pdf import register_pdf_fonts, heading_1, arial_11_justified
+
+register_pdf_fonts()  # requires font files under fonts/
+
+doc = SimpleDocTemplate("example.pdf", pagesize=A4)
+story = []
+story.append(Paragraph("Title", heading_1()))
+story.append(Spacer(1, 12))
+story.append(Paragraph("Body text aligned justified.", arial_11_justified()))
+doc.build(story)
+```
+
+Note: Fonts are loaded by relative paths (e.g., `fonts/arial.ttf`). Call `register_pdf_fonts()` before using styles.
+
 ## Install
 
 Install the released version `v0.22` directly from GitHub:
