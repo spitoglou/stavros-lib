@@ -4,8 +4,8 @@ import io
 from collections import defaultdict
 from typing import Any
 
-from lxml import etree
-from lxml.etree import _Element
+from lxml import etree  # type: ignore[import-untyped]
+from lxml.etree import _Element  # type: ignore[import-untyped]
 
 
 def xml_to_dict(xml_string: str) -> dict[str, Any]:
@@ -90,4 +90,4 @@ def remove_namespace(xml_string: str) -> str:
     transform = etree.XSLT(xslt_doc)
     result = transform(dom)
 
-    return etree.tostring(result, encoding="unicode")
+    return etree.tostring(result, encoding="unicode")  # type: ignore[no-any-return]

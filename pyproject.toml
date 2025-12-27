@@ -43,7 +43,14 @@ module = ["plyer", "plyer.*"]
 ignore_missing_imports = true
 follow_untyped_imports = true
 
+[[tool.mypy.overrides]]
+module = ["stavroslib.tests.*"]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+disallow_untyped_calls = false
+
 [tool.basedpyright]
 typeCheckingMode = "standard"
 reportMissingTypeStubs = "warning"
 reportUnknownMemberType = "none"
+exclude = ["**/tests"]

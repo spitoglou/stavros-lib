@@ -19,7 +19,7 @@ def get_country_data(country: str) -> list[dict[str, Any]]:
     """
     url = "https://restcountries.com/v2/name/" + country
     data: Response = requests.get(url)
-    return data.json()
+    return data.json()  # type: ignore[no-any-return]
 
 
 def sys_not(
@@ -28,7 +28,7 @@ def sys_not(
     timeout: int = 7,
     toast: bool = True,
     app_icon: str = "",
-):
+) -> None:
     """Generate System Notifications (multi-platform)
 
     Keyword Arguments:
@@ -39,9 +39,9 @@ def sys_not(
         app_icon {str} -- Icon file(can be ignored completely) (default: {''})
     """
 
-    from plyer import notification  # type: ignore[import-untyped]
+    from plyer import notification  # pyright: ignore[reportMissingTypeStubs]
 
-    notification.notify(  # type: ignore[union-attr]
+    notification.notify(  # pyright: ignore[reportOptionalCall]
         title=title,
         message=message,
         timeout=timeout,

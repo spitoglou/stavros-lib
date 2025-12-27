@@ -4,7 +4,14 @@ import ftplib
 import os
 import socket
 import time
-from typing import Callable
+from typing import Callable, TypedDict
+
+
+class FileInfo(TypedDict):
+    """File information with path and modification time."""
+
+    path: str
+    mtime: float
 
 
 class FtpHelper:
@@ -65,7 +72,7 @@ def _get_local_files(
     ignore_dirs: list[str] | None = None,
     ignore_files: list[str] | None = None,
     ignore_extensions: list[str] | None = None,
-) -> list[dict[str, str | float]]:
+) -> list[FileInfo]:
     """Get list of local files with modification times.
 
     Arguments:
@@ -103,7 +110,7 @@ def _get_local_files(
                 file_ext = os.path.splitext(this_file)[-1].lower()
                 if file_ext not in ignore_extensions:
                     filepath = os.path.join(current_dir, this_file)
-                    file_monitor_dict = {
+                    file_monitor_dict: FileInfo = {
                         "path": filepath,
                         "mtime": os.path.getmtime(filepath),
                     }
@@ -307,7 +314,7 @@ def _upload_specific_files(
     password: str,
     local_dir: str,
     remote_dir: str,
-    files_to_update: list[dict[str, str | float]],
+    files_to_update: list[FileInfo],
     on_error: Callable[[str, Exception], None] | None = None,
 ) -> bool:
     """Internal helper to upload specific files."""
