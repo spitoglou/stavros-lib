@@ -10,7 +10,7 @@ authors = [{ name = "Stavros Pitoglou", email = "s.pitoglou@csl.gr" }]
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = ["requests", "loguru", "plyer", "reportlab", "PyYAML"]
+dependencies = ["requests", "loguru", "plyer", "reportlab", "PyYAML", "python-dateutil"]
 
 [project.optional-dependencies]
 dev = [
@@ -21,6 +21,7 @@ dev = [
     "types-pyyaml>=6.0.12.20250915",
     "types-reportlab>=4.4.7.20251223",
     "types-requests>=2.32.4.20250913",
+    "types-python-dateutil>=2.9.0.20241206",
 ]
 
 [tool.setuptools.packages.find]

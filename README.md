@@ -27,6 +27,41 @@ This project uses [UV](https://github.com/astral-sh/uv) for dependency managemen
 
 ## Usage
 
+### Parse date/time strings
+
+```python
+from stavroslib.datetime import parse_datetime
+
+dt = parse_datetime("2024-01-15T10:30:00Z")  # ISO 8601
+dt = parse_datetime("15/01/2024")            # Common format
+dt = parse_datetime("Jan 15, 2024")          # Human-readable
+```
+
+### Format datetime objects
+
+```python
+from datetime import datetime
+from stavroslib.datetime import format_datetime
+
+dt = datetime(2024, 1, 15, 10, 30, 0)
+format_datetime(dt, preset="iso")    # "2024-01-15T10:30:00"
+format_datetime(dt, preset="human")  # "January 15, 2024"
+format_datetime(dt, preset="short")  # "01/15/24"
+```
+
+### Relative time descriptions
+
+```python
+from datetime import datetime, timedelta
+from stavroslib.datetime import relative_time
+
+past = datetime.now() - timedelta(hours=2)
+future = datetime.now() + timedelta(days=3)
+
+relative_time(past)    # "2 hours ago"
+relative_time(future)  # "in 3 days"
+```
+
 ### Read TOML config
 
 ```python
